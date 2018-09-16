@@ -1,7 +1,21 @@
 #! /bin/bash
 
-for i in ./*;
+if [[ $# < 2 ]]; then
+	echo "Provide two parameters: input and output folder"
+	exit 2
+fi
+
+INPUT_DIR=$1
+OUTPUT_DIR=$2
+
+if [[ ! -e $OUTPUT_DIR ]]; then
+	mkdir $OUTPUT_DIR
+elif [[ ! -d $OUTPUT_DIR ]]; then
+	echo "$OUTPUT_DIR already exists but is not a directory" 1>&2
+fi
+
+for i in $INPUT_DIR/*;
 	do name=`echo $i | cut -d'.' -f1`;
-		echo $i;
-		ffmpeg -i "$i" -s 1280x720 -acodec mp3 "${i}_1.mp4"
+		FILENAME=$(basename "$i")
+		ffmpeg -i "$i" -s 1280x720 -acodec mp3 "$OUTPUT_DIR/$FILENAME"
 	done
