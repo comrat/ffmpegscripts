@@ -5,4 +5,10 @@ if [[ $# < 1 ]]; then
 	exit 1
 fi
 
-ffmpeg -i $1 -c copy -bsf:a aac_adtstoasc output.mp4
+OUTPUT="output.mp4"
+
+if [[ $# > 1 ]]; then
+	OUTPUT=$2
+fi
+
+ffmpeg -i $1 -c copy -bsf:a aac_adtstoasc $OUTPUT
