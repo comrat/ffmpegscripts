@@ -7,5 +7,10 @@ fi
 
 INPUT_IMG=$1
 OUTPUT_VIDEO=$2
+DURATION=30
 
-ffmpeg -loop 1 -i "$INPUT_IMG" -c:v libx264 -t 25 -pix_fmt yuv420p "$OUTPUT_VIDEO"
+if [[ $# > 1 ]]; then
+	DURATION=$3
+fi
+
+ffmpeg -loop 1 -i "$INPUT_IMG" -c:v libx264 -t $DURATION -pix_fmt yuv420p "$OUTPUT_VIDEO"
