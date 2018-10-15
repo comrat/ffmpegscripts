@@ -8,5 +8,10 @@ fi
 INPUT_FILE=$1
 START_TIME=$2
 END_TIME=$3
+OUTPUT="output.mp4"
 
-ffmpeg -i $INPUT_FILE -vcodec copy -acodec copy -ss $START_TIME -t $END_TIME output.mp4
+if [[ $# > 3 ]]; then
+	OUTPUT=$4
+fi
+
+ffmpeg -i $INPUT_FILE -vcodec copy -acodec copy -ss $START_TIME -t $END_TIME $OUTPUT
