@@ -17,5 +17,7 @@ fi
 for i in $INPUT_DIR/*;
 	do name=`echo $i | cut -d'.' -f1`;
 		FILENAME=$(basename "$i")
-		ffmpeg -i "$i" -s 1280x720 -acodec mp3 "$OUTPUT_DIR/$FILENAME"
+		ffmpeg -i "$i" -c:v libx264 -s 1280x720 -acodec mp3 -f mp4 "$OUTPUT_DIR/$FILENAME"
+		# ffmpeg -i "$i" -s 1280x720 -acodec mp3 "$OUTPUT_DIR/$FILENAME"
+		# ffmpeg -i "$i" -c:v libx264  -s 1280x720 -acodec mp3 -f mp4 "$OUTPUT_DIR/$FILENAME"
 	done

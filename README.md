@@ -1,8 +1,8 @@
 # ffmpeg scripts
 ffmpeg scripts collection^
 
-## compress.sh
-Compress input video file
+## compress_folder.sh
+Compress all video from input folder file and save it in output folder
 
 ## download_hls.sh
 Download HLS file via its link and store it in mp4 file.
