@@ -1,11 +1,14 @@
 # ffmpeg scripts
-ffmpeg scripts collection^
+ffmpeg scripts collection
+
+## compress.sh
+Compress video single video
 
 ## compress_folder.sh
 Compress all video from input folder file and save it in output folder
 
 ## download_hls.sh
-Download HLS file via its link and store it in mp4 file.
+Download HLS file via its link and store it in mp4 file
 
 ## convert_wmv.sh
 Convert WMV files to MP4
