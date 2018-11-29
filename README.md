@@ -21,3 +21,9 @@ Make video from single frame
 
 ## get_part.sh
 Get video part from selected second to selected
+
+## rotate.sh
+Rotate video 90 degrees clockwise
+
+## video2gif.sh
+Convert video to gif file
