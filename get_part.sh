@@ -1,17 +1,37 @@
 #! /bin/bash
 
-if [[ $# < 3 ]]; then
-	echo "Provide three parameters: input file, start time adn end time"
-	exit 2
-fi
+POSITIONAL=()
+while [[ $# -gt 0 ]]
+do
+key="$1"
 
-INPUT_FILE=$1
-START_TIME=$2
-END_TIME=$3
-OUTPUT="output.mp4"
+case $key in
+    -i|--input)
+    INPUT_FILE="$2"
+    shift # past argument
+    shift # past value
+    ;;
+    -o|--output)
+    OUTPUT_FILE="$2"
+    shift # past argument
+    shift # past value
+    ;;
+    -s|--start-time)
+    START_TIME="$2"
+    shift # past argument
+    shift # past value
+    ;;
+    -e|--end-time)
+    END_TIME="$2"
+    shift # past argument
+    shift # past value
+    ;;
+    *)    # unknown option
+    POSITIONAL+=("$1") # save it in an array for later
+    shift # past argument
+    ;;
+esac
+done
+set -- "${POSITIONAL[@]}" # restore positional parameters
 
-if [[ $# > 3 ]]; then
-	OUTPUT=$4
-fi
-
-ffmpeg -i $INPUT_FILE -vcodec copy -acodec copy -ss $START_TIME -t $END_TIME $OUTPUT
+ffmpeg -i $INPUT_FILE -vcodec copy -acodec copy -ss $START_TIME -t $END_TIME $OUTPUT_FILE
