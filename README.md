@@ -27,3 +27,6 @@ Rotate video 90 degrees clockwise
 
 ## video2gif.sh
 Convert video to gif file
+
+## record.sh
+Record video in file from webcam
