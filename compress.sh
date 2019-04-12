@@ -12,4 +12,32 @@ if [[ $# > 1 ]]; then
 	OUTPUT_FILE=$2
 fi
 
-ffmpeg -i "$INPUT_FILE" -c:v libx264 -s 1280x720 -acodec mp3 -f mp4 "$OUTPUT_FILE"
+WIDTH="1280"
+HEIGHT="720"
+
+POSITIONAL=()
+while [[ $# -gt 0 ]]
+do
+key="$1"
+
+case $key in
+    -w|--width)
+    WIDTH="$2"
+    shift # past argument
+    shift # past value
+    ;;
+    -h|--height)
+    HEIGHT="$2"
+    shift # past argument
+    shift # past value
+    ;;
+    *)    # unknown option
+    POSITIONAL+=("$1") # save it in an array for later
+    shift # past argument
+    ;;
+esac
+done
+set -- "${POSITIONAL[@]}" # restore positional parameters
+
+echo "Size: $WIDTH x $HEIGHT"
+ffmpeg -i "$i" -c:v libx264 -s $WIDTHx$HEIGHT -acodec mp3 -f mp4 "$OUTPUT_DIR/$FILENAME"
