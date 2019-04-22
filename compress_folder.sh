@@ -7,6 +7,32 @@ fi
 
 INPUT_DIR=$1
 OUTPUT_DIR=$2
+WIDTH="1280"
+HEIGHT="720"
+
+POSITIONAL=()
+while [[ $# -gt 0 ]]
+do
+key="$1"
+
+case $key in
+    -w|--width)
+    WIDTH="$2"
+    shift # past argument
+    shift # past value
+    ;;
+    -h|--height)
+    HEIGHT="$2"
+    shift # past argument
+    shift # past value
+    ;;
+    *)    # unknown option
+    POSITIONAL+=("$1") # save it in an array for later
+    shift # past argument
+    ;;
+esac
+done
+set -- "${POSITIONAL[@]}" # restore positional parameters
 
 if [[ ! -e $OUTPUT_DIR ]]; then
 	mkdir $OUTPUT_DIR
@@ -17,5 +43,5 @@ fi
 for i in $INPUT_DIR/*;
 	do name=`echo $i | cut -d'.' -f1`;
 		FILENAME=$(basename "$i")
-		ffmpeg -i "$i" -c:v libx264 -s 1280x720 -acodec mp3 -f mp4 "$OUTPUT_DIR/$FILENAME"
+		ffmpeg -i "$i" -c:v libx264 -s $WIDTHx$HEIGHT -acodec mp3 -f mp4 "$OUTPUT_DIR/$FILENAME"
 	done
