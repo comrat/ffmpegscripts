@@ -40,4 +40,4 @@ done
 set -- "${POSITIONAL[@]}" # restore positional parameters
 
 echo "Size: $WIDTH x $HEIGHT"
-ffmpeg -i "$i" -c:v libx264 -s $WIDTHx$HEIGHT -acodec mp3 -f mp4 "$OUTPUT_DIR/$FILENAME"
+ffmpeg -i $INPUT_FILE -c:v libx264 -s $WIDTHx$HEIGHT -acodec mp3 -f mp4 "$OUTPUT_DIR/$FILENAME"
