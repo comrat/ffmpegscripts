@@ -33,3 +33,6 @@ Record video in file from webcam
 
 ## resize.sh
 Set new size to the input video
+
+## watermark.sh
+Add watermark (watermark.png) on input video
