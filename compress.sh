@@ -39,5 +39,7 @@ esac
 done
 set -- "${POSITIONAL[@]}" # restore positional parameters
 
-echo "Size: $WIDTH x $HEIGHT"
-ffmpeg -i $INPUT_FILE -c:v libx264 -s $WIDTHx$HEIGHT -acodec mp3 -f mp4 "$OUTPUT_DIR/$FILENAME"
+SIZE=$WIDTH
+SIZE+="x"
+SIZE+=$HEIGHT
+ffmpeg -i $INPUT_FILE -c:v libx264 -s $SIZE -acodec mp3 -f mp4 "$OUTPUT_FILE"
