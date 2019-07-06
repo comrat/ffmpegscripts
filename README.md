@@ -2,7 +2,9 @@
 ffmpeg scripts collection
 
 ## compress.sh
-Compress video single video
+Compress video single video.
+First argument for input file and for output file the second one.
+Use `-w` and `-h` flags for width and height setting respectivly
 
 ## compress_folder.sh
 Compress all video from input folder file and save it in output folder.
