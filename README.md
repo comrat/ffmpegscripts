@@ -6,7 +6,7 @@ Compress video single video.
 First argument for input file and for output file the second one.
 Use `-w` and `-h` flags for width and height setting respectivly
 
-## compress_folder.sh
+## compress_dir.sh
 Compress all video from input folder file and save it in output folder.
 First argument for input directory and for output directory the second one.
 Use `-w` and `-h` flags for width and height setting respectivly
