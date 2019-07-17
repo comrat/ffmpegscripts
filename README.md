@@ -40,3 +40,6 @@ Set new size to the input video
 
 ## watermark.sh
 Add watermark (watermark.png) on input video
+
+## remove_audio.sh
+Remove audio from input video
