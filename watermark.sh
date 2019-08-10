@@ -1,3 +1,5 @@
+#! /bin/bash
+
 if [[ $# < 1 ]]; then
 	echo "Provide at least one parameter: input file"
 	exit 2
