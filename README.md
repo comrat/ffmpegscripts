@@ -43,3 +43,6 @@ Add watermark (watermark.png) on input video
 
 ## remove_audio.sh
 Remove audio from input video
+
+## get_duration.sh
+Script returns input video duration
