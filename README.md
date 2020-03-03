@@ -49,3 +49,6 @@ Remove audio from input video
 
 ## get_duration.sh
 Script returns input video duration
+
+## merge_video_and_audio.sh
+Merge video and audio files in one
