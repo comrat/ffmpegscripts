@@ -52,3 +52,15 @@ Script returns input video duration
 
 ## merge_video_and_audio.sh
 Merge video and audio files in one
+
+## gif2video.sh
+Make video from gif
+```
+./gif2video.sh input.gif output.mp4
+```
+
+## gif2video_dir.sh
+Make video files from gif files in input directory
+```
+./gif2video.sh input.gif output.mp4
+```
