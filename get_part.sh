@@ -34,4 +34,4 @@ esac
 done
 set -- "${POSITIONAL[@]}" # restore positional parameters
 
-ffmpeg -i $INPUT_FILE -vcodec copy -acodec copy -ss $START_TIME -t $END_TIME $OUTPUT_FILE
+ffmpeg -i $INPUT_FILE -ss $START_TIME -t $END_TIME $OUTPUT_FILE
