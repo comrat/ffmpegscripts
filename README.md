@@ -70,3 +70,9 @@ Crop video from fixed (X, Y) position
 ```
 ./gif2video.sh -i input.mp4 -x 100 -y 100 -o output.mp4
 ```
+
+## make_hls.sh
+Make HLS from input.mp4 video
+```
+./make_hls.sh -i input.mp4 -w 1280 -h 720
+```
