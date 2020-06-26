@@ -68,7 +68,7 @@ Make video files from gif files in input directory
 ## crop_video.sh
 Crop video from fixed (X, Y) position
 ```
-./gif2video.sh -i input.mp4 -x 100 -y 100 -o output.mp4
+./crop_video.sh -i input.mp4 -x 100 -y 100 -o output.mp4
 ```
 
 ## make_hls.sh
