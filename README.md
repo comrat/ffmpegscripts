@@ -62,7 +62,7 @@ Make video from gif
 ## gif2video_dir.sh
 Make video files from gif files in input directory
 ```
-./gif2video.sh input.gif output.mp4
+./gif2video_dir.sh input.gif output.mp4
 ```
 
 ## crop_video.sh
