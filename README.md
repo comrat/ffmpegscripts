@@ -6,7 +6,7 @@ Compress video single video.
 First argument for input file and for output file the second one.
 Use `-w` and `-h` flags for width and height setting respectivly
 ```
-./compress input.mp4 output.mp4 -w 1280 -h 720
+./compress.sh input.mp4 output.mp4 -w 1280 -h 720
 ```
 
 ## compress_dir.sh
@@ -14,11 +14,14 @@ Compress all video from input folder file and save it in output folder.
 First argument for input directory and for output directory the second one.
 Use `-w` and `-h` flags for width and height setting respectivly
 ```
-./compress_dir ./input ./output -w 1280 -h 720
+./compress_dir.sh ./input ./output -w 1280 -h 720
 ```
 
 ## download_hls.sh
 Download HLS file via its link and store it in mp4 file
+```
+./download_hls.sh "http://foo/bar.m3u8" output.mp4
+```
 
 ## convert_wmv.sh
 Convert WMV files to MP4
