@@ -91,3 +91,9 @@ Make HLS from input.mp4 video
 ```
 ./make_hls.sh -i input.mp4 -w 1280 -h 720
 ```
+
+## youtube_2_mp3.sh
+Download youtube video and retrieve the audio track and convert it to the mp3 file
+```
+./youtube_2_mp3.sh https://www.youtube.com/watch?v=100500 output.mp3
+```
