@@ -13,5 +13,5 @@ if [[ $# > 1 ]]; then
 fi
 
 yt-dlp -f 140 $1 -o $INPUT
-ffmpeg -i $INPUT -c:v copy -c:a libmp3lame -q:a 4 $OUTPUT
+ffmpeg -i $INPUT -c:v copy -c:a libmp3lame -q:a 4 "$OUTPUT"
 rm $INPUT
