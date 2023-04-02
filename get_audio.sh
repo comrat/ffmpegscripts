@@ -16,4 +16,4 @@ if [[ $# > 1 ]]; then
 	OUTPUT=$2
 fi
 
-ffmpeg -i $INPUT -c:v copy -c:a libmp3lame -q:a 4 "$OUTPUT"
+ffmpeg -i "$INPUT" -c:v copy -c:a libmp3lame -q:a 4 "$OUTPUT"
