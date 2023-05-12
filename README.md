@@ -33,7 +33,11 @@ Make screenshots for input video
 Make video from single frame
 
 ## get_part.sh
-Get video part from selected second to selected
+Get `-i` video part from selected second `-s` with `-d` duration time length.
+The below script get part of the input video `input.mp4` from the `00:00:10` second with `00:00:20` seonds duration to the `output.mp4` file
+```
+./get_part.sh -i input.mp4 -s 00:00:10 -d 00:00:20 -o output.mp4
+```
 
 ## rotate.sh
 Rotate video 90 degrees clockwise

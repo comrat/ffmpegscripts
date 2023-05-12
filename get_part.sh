@@ -21,8 +21,8 @@ case $key in
     shift # past argument
     shift # past value
     ;;
-    -e|--end-time)
-    END_TIME="$2"
+    -d|--duration)
+    DURATION_TIME="$2"
     shift # past argument
     shift # past value
     ;;
@@ -34,4 +34,4 @@ esac
 done
 set -- "${POSITIONAL[@]}" # restore positional parameters
 
-ffmpeg -i $INPUT_FILE -ss $START_TIME -t $END_TIME $OUTPUT_FILE
+ffmpeg -i $INPUT_FILE -ss $START_TIME -t $DURATION_TIME $OUTPUT_FILE
