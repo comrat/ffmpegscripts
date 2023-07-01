@@ -44,6 +44,10 @@ Rotate video 90 degrees clockwise
 
 ## video2gif.sh
 Convert video to gif file
+Get `-i` video file and take every `-f` frame from it and combine result frames with `-t` interval to the `-o` GIF file
+```
+./get_part.sh -i input.mp4 -f 30 -t 5 0o output.gif
+```
 
 ## record.sh
 Record video in file from webcam
