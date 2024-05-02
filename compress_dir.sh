@@ -43,8 +43,9 @@ fi
 for i in $INPUT_DIR/*;
     do name=`echo $i | cut -d'.' -f1`;
         FILENAME=$(basename "$i")
+        NAME_WITHOUT_EXT="${FILENAME%.*}"
         SIZE=$WIDTH
         SIZE+="x"
         SIZE+=$HEIGHT
-        ffmpeg -i "$i" -c:v libx264 -s $SIZE -acodec mp3 -f mp4 "$OUTPUT_DIR/$FILENAME"
+        ffmpeg -i "$i" -c:v libx264 -s $SIZE -acodec mp3 -f mp4 "$OUTPUT_DIR/$NAME_WITHOUT_EXT".mp4
     done
