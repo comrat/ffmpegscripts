@@ -7,18 +7,17 @@ import sys
 import os
 
 playlist_url = sys.argv[1]
+index = int(sys.argv[2]) if len(sys.argv) > 2 else 0
 
-# Retrieve URLs of videos from playlist
 playlist = Playlist(playlist_url)
-print('Number Of Videos In playlist: %s' % len(playlist.video_urls))
+playlist_cut = playlist.video_urls[index:len(playlist.video_urls)]
+print('Number Of Videos In playlist: %s' % len(playlist_cut))
 
-for url in playlist:
+for url in playlist_cut:
     file_name = os.popen('~/work/opensource/yt-dlp/2/yt-dlp/yt-dlp.sh --print filename %s' %url).read()
     name = Path(file_name).stem
-    print("NAME '%s'" %url)
     os.system('~/work/opensource/yt-dlp/2/yt-dlp/yt-dlp.sh -f 140 %s' %url)
     os.system('~/work/opensource/yt-dlp/2/yt-dlp/yt-dlp.sh -f 136 %s' %url)
-    # os.system('~/work/opensource/yt-dlp/2/yt-dlp/yt-dlp.sh -f 136 %s' %url)
     video_file_name = name + ".mp4"
     audio_file_name = name + ".m4a"
     output_file_name = name + "_out.mp4"
