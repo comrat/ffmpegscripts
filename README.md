@@ -105,3 +105,10 @@ Download youtube video and retrieve the audio track and convert it to the mp3 fi
 ```
 ./youtube_2_mp3.sh https://www.youtube.com/watch?v=100500 output.mp3
 ```
+
+## get_frames.sh
+Get all frames from the input video file
+
+```
+./youtube_2_mp3.sh https://www.youtube.com/watch?v=100500 output.mp3
+```
