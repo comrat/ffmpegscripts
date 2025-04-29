@@ -12,8 +12,8 @@ if [[ $# > 1 ]]; then
 	OUTPUT_FILE=$2
 fi
 
-WIDTH="1280"
-HEIGHT="720"
+WIDTH=0
+HEIGHT=0
 
 POSITIONAL=()
 while [[ $# -gt 0 ]]
@@ -21,25 +21,31 @@ do
 key="$1"
 
 case $key in
-    -w|--width)
-    WIDTH="$2"
-    shift # past argument
-    shift # past value
-    ;;
-    -h|--height)
-    HEIGHT="$2"
-    shift # past argument
-    shift # past value
-    ;;
-    *)    # unknown option
-    POSITIONAL+=("$1") # save it in an array for later
-    shift # past argument
-    ;;
+	-w|--width)
+	WIDTH="$2"
+	shift # past argument
+	shift # past value
+	;;
+	-h|--height)
+	HEIGHT="$2"
+	shift # past argument
+	shift # past value
+	;;
+	*)    # unknown option
+	POSITIONAL+=("$1") # save it in an array for later
+	shift # past argument
+	;;
 esac
 done
 set -- "${POSITIONAL[@]}" # restore positional parameters
 
-SIZE=$WIDTH
-SIZE+="x"
-SIZE+=$HEIGHT
-ffmpeg -i $INPUT_FILE -c:v libx264 -s $SIZE -acodec mp3 -f mp4 "$OUTPUT_FILE"
+
+if [[ $WIDTH > 0 ]]; then
+	SIZE=$WIDTH
+	SIZE+="x"
+	SIZE+=$HEIGHT
+	echo $SIZE
+	ffmpeg -i $INPUT_FILE -c:v libx264 -s $SIZE -acodec mp3 -f mp4 "$OUTPUT_FILE"
+else
+	ffmpeg -i $INPUT_FILE -c:v libx264 -acodec mp3 -f mp4 "$OUTPUT_FILE"
+fi
