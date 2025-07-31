@@ -45,7 +45,7 @@ if [[ $WIDTH > 0 ]]; then
 	SIZE+="x"
 	SIZE+=$HEIGHT
 	echo $SIZE
-	ffmpeg -i $INPUT_FILE -c:v libx264 -s $SIZE -acodec mp3 -f mp4 "$OUTPUT_FILE"
+	ffmpeg -i $INPUT_FILE -c:v libx264 -profile:v baseline -s $SIZE -acodec mp3 -f mp4 "$OUTPUT_FILE"
 else
-	ffmpeg -i $INPUT_FILE -c:v libx264 -acodec mp3 -f mp4 "$OUTPUT_FILE"
+	ffmpeg -i $INPUT_FILE -c:v libx264 -profile:v baseline -acodec mp3 -f mp4 "$OUTPUT_FILE"
 fi
