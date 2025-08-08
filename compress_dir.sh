@@ -7,8 +7,8 @@ fi
 
 INPUT_DIR=$1
 OUTPUT_DIR=$2
-WIDTH="1280"
-HEIGHT="720"
+WIDTH=0
+HEIGHT=0
 
 POSITIONAL=()
 while [[ $# -gt 0 ]]
@@ -16,20 +16,20 @@ do
 key="$1"
 
 case $key in
-    -w|--width)
-    WIDTH="$2"
-    shift # past argument
-    shift # past value
-    ;;
-    -h|--height)
-    HEIGHT="$2"
-    shift # past argument
-    shift # past value
-    ;;
-    *)    # unknown option
-    POSITIONAL+=("$1") # save it in an array for later
-    shift # past argument
-    ;;
+	-w|--width)
+	WIDTH="$2"
+	shift # past argument
+	shift # past value
+	;;
+	-h|--height)
+	HEIGHT="$2"
+	shift # past argument
+	shift # past value
+	;;
+	*)    # unknown option
+	POSITIONAL+=("$1") # save it in an array for later
+	shift # past argument
+	;;
 esac
 done
 set -- "${POSITIONAL[@]}" # restore positional parameters
@@ -41,11 +41,16 @@ elif [[ ! -d $OUTPUT_DIR ]]; then
 fi
 
 for i in $INPUT_DIR/*;
-    do name=`echo $i | cut -d'.' -f1`;
-        FILENAME=$(basename "$i")
-        NAME_WITHOUT_EXT="${FILENAME%.*}"
-        SIZE=$WIDTH
-        SIZE+="x"
-        SIZE+=$HEIGHT
-        ffmpeg -i "$i" -c:v libx264 -s $SIZE -acodec mp3 -f mp4 "$OUTPUT_DIR/$NAME_WITHOUT_EXT".mp4
-    done
+	do name=`echo $i | cut -d'.' -f1`;
+		FILENAME=$(basename "$i")
+		NAME_WITHOUT_EXT="${FILENAME%.*}"
+		if [[ $WIDTH > 0 ]]; then
+			SIZE=$WIDTH
+			SIZE+="x"
+			SIZE+=$HEIGHT
+			ffmpeg -i "$i" -c:v libx264 -s $SIZE -acodec mp3 -f mp4 "$OUTPUT_DIR/$NAME_WITHOUT_EXT".mp4
+		else
+			# ffmpeg -i "$i" -c:v libx264 -c:a aac -f mp4 "$OUTPUT_DIR/$NAME_WITHOUT_EXT".mp4
+			ffmpeg -i "$i" -c:v libx264 -acodec mp3 -f mp4 "$OUTPUT_DIR/$NAME_WITHOUT_EXT".mp4
+		fi
+	done
