@@ -30,7 +30,12 @@ Convert WMV files to MP4
 Make screenshots for input video
 
 ## image2video.sh
-Make video from single frame
+Make single frame video from the input image.
+First argument for input image file. The second one is for output video file.
+Use `-d` flag to setup output video duration (30 sec. is by default)
+```
+./image2video.sh foo.jpg bar.mp4 -d 10
+```
 
 ## get_part.sh
 Get `-i` video part from selected second `-s` with `-d` duration time length.
