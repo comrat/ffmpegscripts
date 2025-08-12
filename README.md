@@ -51,7 +51,7 @@ Rotate video 90 degrees clockwise
 Convert video to gif file
 Get `-i` video file and take every `-f` frame from it and combine result frames with `-t` interval to the `-o` GIF file
 ```
-./get_part.sh -i input.mp4 -f 30 -t 5 0o output.gif
+./video2gif.sh -i input.mp4 -f 30 -t 5 0o output.gif
 ```
 
 ## record.sh
@@ -66,7 +66,7 @@ Set new size to the input video
 ## resize_dir.sh
 Set new size to the all files in input directory
 ```
-./resize.sh -i ./input -w 1280 -h 720 -o ./output
+./resize_dir.sh -i ./input -w 1280 -h 720 -o ./output
 ```
 
 ## watermark.sh
@@ -105,15 +105,14 @@ Make HLS from input.mp4 video
 ./make_hls.sh -i input.mp4 -w 1280 -h 720
 ```
 
-## youtube_2_mp3.sh
+## youtube2mp3.sh
 Download youtube video and retrieve the audio track and convert it to the mp3 file
 ```
-./youtube_2_mp3.sh https://www.youtube.com/watch?v=100500 output.mp3
+./youtube2mp3.sh https://www.youtube.com/watch?v=100500 output.mp3
 ```
 
 ## get_frames.sh
 Get all frames from the input video file
-
 ```
-./youtube_2_mp3.sh https://www.youtube.com/watch?v=100500 output.mp3
+./get_frames.sh https://www.youtube.com/watch?v=100500 output.mp3
 ```
