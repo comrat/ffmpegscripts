@@ -23,11 +23,17 @@ Download HLS file via its link and store it in mp4 file
 ./download_hls.sh "http://foo/bar.m3u8" output.mp4
 ```
 
-## convert_wmv.sh
-Convert WMV files to MP4
+## convert_wmv_dir.sh
+Convert directory with WMV files to MP4. First argument is the WMV directory, second the output dir
+```
+./convert_wmv_dir.sh ./wmv_dir ./output_mp_dir
+```
 
 ## screenshots.sh
-Make screenshots for input video
+Make screenshots of input video. First argument is input video file, second argument is time interval (10 sec is by default). The output images will be placed in the current directory
+```
+./screenshots.sh input.mp4 30
+```
 
 ## image2video.sh
 Make single frame video from the input image.
@@ -45,7 +51,10 @@ The below script get part of the input video `input.mp4` from the `00:00:10` sec
 ```
 
 ## rotate.sh
-Rotate video 90 degrees clockwise
+Rotate video 90 degrees clockwise. First argument is the input file and the second is the output file
+```
+./rotate.sh input.mp4 output.mp4
+```
 
 ## video2gif.sh
 Convert video to gif file
@@ -55,7 +64,10 @@ Get `-i` video file and take every `-f` frame from it and combine result frames 
 ```
 
 ## record.sh
-Record video in file from webcam
+Record video in file from webcam. Single argument is the outut file
+```
+./record.sh output.mp4
+```
 
 ## resize.sh
 Set new size to the input video
@@ -70,10 +82,15 @@ Set new size to the all files in input directory
 ```
 
 ## watermark.sh
-Add watermark (watermark.png) on input video
+Add watermark (watermark.png) on input video. First argument is the input video file second output file the thord one - watermark image file
+```
+./watermark.sh ./input.mp4 ./output.mp4 ./watermark.png
+```
 
 ## remove_audio.sh
 Remove audio from input video
+```
+```
 
 ## get_duration.sh
 Script returns input video duration
