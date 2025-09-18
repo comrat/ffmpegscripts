@@ -10,9 +10,8 @@ Use `-w` and `-h` flags for width and height setting respectivly
 ```
 
 ## compress_dir.sh
-Compress all video from input folder file and save it in output folder.
-First argument for input directory and for output directory the second one.
-Use `-w` and `-h` flags for width and height setting respectivly
+Compress all video from the input folder (use `-i` flag for it) and save compressed videos it in the output folder (provided via `-o` flag).
+Use optional `-w` and `-h` flags for output width and height video properties respectivly
 ```
 ./compress_dir.sh ./input ./output -w 1280 -h 720
 ```
