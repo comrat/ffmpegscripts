@@ -1,10 +1,4 @@
 #! /bin/bash
-
-if [[ $# < 2 ]]; then
-	echo "Provide at least two parameters: --input and --output"
-	exit 2
-fi
-
 WIDTH=0
 HEIGHT=0
 
