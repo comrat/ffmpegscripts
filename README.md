@@ -132,3 +132,9 @@ Get all frames from the input video file
 ```
 ./get_frames.sh https://www.youtube.com/watch?v=100500 output.mp3
 ```
+
+## dir2mp3.sh
+Combine all audio files from the input directory (use `-i` flag to provide the absolute path to this directory) into single mp3 file (use `-o` flag to setupt result file name `output.mp3` by default).
+```
+./dir2mp3.sh -i /home/username/audio_files/ -o output.mp3
+```
