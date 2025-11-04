@@ -2,15 +2,13 @@
 ffmpeg scripts collection
 
 ## compress.sh
-Compress video single video.
-First argument for input file and for output file the second one.
-Use `-w` and `-h` flags for width and height setting respectivly
+Compress single video file (pass the path to this file using the `-i` flag) and save compressed video as the output file which name can be changed with the optional `-o` flag, by default it will be saved to `output.mp4`. Use optional `-w` and `-h` flags for output width and height video properties respectivly
 ```
-./compress.sh input.mp4 output.mp4 -w 1280 -h 720
+./compress.sh -i input.mp4 -o output.mp4 -w 1280 -h 720
 ```
 
 ## compress_dir.sh
-Compress all video from the input folder (use `-i` flag for it) and save compressed videos it in the output folder (provided via `-o` flag).
+Compress all video from the input folder (use the `-i` flag for it) and save compressed videos in the output folder (provided via `-o` flag).
 Use optional `-w` and `-h` flags for output width and height video properties respectivly
 ```
 ./compress_dir.sh ./input ./output -w 1280 -h 720

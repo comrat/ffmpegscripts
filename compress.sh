@@ -1,17 +1,6 @@
 #! /bin/bash
 
-if [[ $# < 1 ]]; then
-	echo "Provide at least one parameter: input file"
-	exit 2
-fi
-
-INPUT_FILE=$1
 OUTPUT_FILE="output.mp4"
-
-if [[ $# > 1 ]]; then
-	OUTPUT_FILE=$2
-fi
-
 WIDTH=0
 HEIGHT=0
 
@@ -21,6 +10,16 @@ do
 key="$1"
 
 case $key in
+	-i|--input)
+	INPUT_FILE="$2"
+	shift # past argument
+	shift # past value
+	;;
+	-o|--output)
+	OUTPUT_FILE="$2"
+	shift # past argument
+	shift # past value
+	;;
 	-w|--width)
 	WIDTH="$2"
 	shift # past argument
@@ -39,6 +38,10 @@ esac
 done
 set -- "${POSITIONAL[@]}" # restore positional parameters
 
+if [ -z ${INPUT_FILE+x} ]; then
+	echo "Provide an input file using the -i flag"
+	exit 2
+fi
 
 if [[ $WIDTH > 0 ]]; then
 	SIZE=$WIDTH
