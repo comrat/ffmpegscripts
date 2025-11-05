@@ -1,4 +1,6 @@
 #! /bin/bash
+
+OUTPUT_DIR="output"
 WIDTH=0
 HEIGHT=0
 
@@ -35,6 +37,11 @@ case $key in
 esac
 done
 set -- "${POSITIONAL[@]}" # restore positional parameters
+
+if [ -z ${INPUT_DIR+x} ]; then
+	echo "Provide the input directory using the -i flag"
+	exit 2
+fi
 
 if [[ ! -e $OUTPUT_DIR ]]; then
 	mkdir $OUTPUT_DIR

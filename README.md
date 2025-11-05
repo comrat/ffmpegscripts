@@ -8,16 +8,16 @@ Compress single video file (pass the path to this file using the `-i` flag) and 
 ```
 
 ## compress_dir.sh
-Compress all video from the input folder (use the `-i` flag for it) and save compressed videos in the output folder (provided via `-o` flag).
+Compress all files from the input directory (use the `-i` flag to set this directory) and save compressed videos in the output folder (use the `-o` flag for it or `./output` directory will be used by default).
 Use optional `-w` and `-h` flags for output width and height video properties respectivly
 ```
-./compress_dir.sh ./input ./output -w 1280 -h 720
+./compress_dir.sh -i ./input -o ./output -w 1280 -h 720
 ```
 
 ## download_hls.sh
-Download HLS file via its link and store it in mp4 file
+Download HLS vidio from the `-i` flag value and save it to the output mp4 file speciafied in the `-o` flag value (output.mp4 by default)
 ```
-./download_hls.sh "http://foo/bar.m3u8" output.mp4
+./download_hls.sh -i "http://foo/bar.m3u8" -o output.mp4
 ```
 
 ## convert_wmv_dir.sh

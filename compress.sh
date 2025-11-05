@@ -39,7 +39,7 @@ done
 set -- "${POSITIONAL[@]}" # restore positional parameters
 
 if [ -z ${INPUT_FILE+x} ]; then
-	echo "Provide an input file using the -i flag"
+	echo "Provide the input file using the -i flag"
 	exit 2
 fi
 
@@ -48,7 +48,7 @@ if [[ $WIDTH > 0 ]]; then
 	SIZE+="x"
 	SIZE+=$HEIGHT
 	echo $SIZE
-	ffmpeg -i $INPUT_FILE -c:v libx264 -profile:v baseline -s $SIZE -acodec mp3 -f mp4 "$OUTPUT_FILE"
+	ffmpeg -i $INPUT_FILE -r 30 -c:v libx264 -profile:v baseline -s $SIZE -acodec mp3 -f mp4 "$OUTPUT_FILE"
 else
-	ffmpeg -i $INPUT_FILE -c:v libx264 -profile:v baseline -acodec mp3 -f mp4 "$OUTPUT_FILE"
+	ffmpeg -i $INPUT_FILE -r 30 -c:v libx264 -profile:v baseline -acodec mp3 -f mp4 "$OUTPUT_FILE"
 fi
