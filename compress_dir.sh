@@ -12,23 +12,23 @@ key="$1"
 case $key in
 	-i|--input)
 	INPUT_DIR="$2"
-	shift # past argument
-	shift # past value
+	shift
+	shift
 	;;
 	-o|--output)
 	OUTPUT_DIR="$2"
-	shift # past argument
-	shift # past value
+	shift
+	shift
 	;;
 	-w|--width)
 	WIDTH="$2"
-	shift # past argument
-	shift # past value
+	shift
+	shift
 	;;
 	-h|--height)
 	HEIGHT="$2"
-	shift # past argument
-	shift # past value
+	shift
+	shift
 	;;
 	*)    # unknown option
 	POSITIONAL+=("$1") # save it in an array for later

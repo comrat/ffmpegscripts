@@ -2,34 +2,40 @@
 ffmpeg scripts collection
 
 ## compress.sh
-Compress single video file (pass the path to this file using the `-i` flag) and save compressed video as the output file which name can be changed with the optional `-o` flag, by default it will be saved to `output.mp4`. Use optional `-w` and `-h` flags for output width and height video properties respectivly
+Compress this single video file
+`-i|--input` - the input video file (required)
+`-o|--output` - the output video file `./output.mp4` by default (optional)
+`-w|--width` - the required width of the output video 1280 by default (optional)
+`-h|--height` - the required height of the output video 720 by default (optional)
 ```
 ./compress.sh -i input.mp4 -o output.mp4 -w 1280 -h 720
 ```
 
 ## compress_dir.sh
-Compress all files from the input directory (use the `-i` flag to set this directory) and save compressed videos in the output folder (use the `-o` flag for it or `./output` directory will be used by default).
-Use optional `-w` and `-h` flags for output width and height video properties respectivly
+Compress all files in the input directory
+`-i|--input` - the input directory with video files (required)
+`-o|--output` - the output directory `./output` by default (optional)
+`-w|--width` - the required width of the output video 1280 by default (optional)
+`-h|--height` - the required height of the output video 720 by default (optional)
 ```
 ./compress_dir.sh -i ./input -o ./output -w 1280 -h 720
 ```
 
 ## download_hls.sh
-Download HLS vidio from the `-i` flag value and save it to the output mp4 file speciafied in the `-o` flag value (output.mp4 by default)
+Download remote HLS video to the local mp4 file
+`-i|--input` - the input HLS video URL (required)
+`-o|--output` - the output video file `./output.mp4` by default (optional)
 ```
 ./download_hls.sh -i "http://foo/bar.m3u8" -o output.mp4
 ```
 
-## convert_wmv_dir.sh
-Convert directory with WMV files to MP4. First argument is the WMV directory, second the output dir
-```
-./convert_wmv_dir.sh ./wmv_dir ./output_mp_dir
-```
-
 ## screenshots.sh
-Make screenshots of input video. First argument is input video file, second argument is time interval (10 sec is by default). The output images will be placed in the current directory
+Make screenshots from the input video file
+`-i|--input` - the input HLS video URL (required)
+`-o|--output` - the output video file `./output.mp4` by default (optional)
+`-s|--seconds` time interval (10 sec is by default). The output images will be placed in the current directory
 ```
-./screenshots.sh input.mp4 30
+./screenshots.sh -i input.mp4 -s 30 -o ./output
 ```
 
 ## image2video.sh
