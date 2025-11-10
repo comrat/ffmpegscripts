@@ -3,37 +3,37 @@ ffmpeg scripts collection
 
 ## compress.sh
 Compress this single video file
->`-i|--input` - the input video file (required)
->`-o|--output` - the output video file `./output.mp4` by default (optional)
-> `-w|--width` - the required width of the output video 1280 by default (optional)
->`-h|--height` - the required height of the output video 720 by default (optional)
+* `-i|--input` - the input video file (required)
+* `-o|--output` - the output video file `./output.mp4` by default (optional)
+* `-w|--width` - the required width of the output video 1280 by default (optional)
+* `-h|--height` - the required height of the output video 720 by default (optional)
 ```
 ./compress.sh -i input.mp4 -o output.mp4 -w 1280 -h 720
 ```
 
 ## compress_dir.sh
 Compress all files in the input directory
-> `-i|--input` - the input directory with video files (required)
->`-o|--output` - the output directory `./output` by default (optional)
-> `-w|--width` - the required width of the output video 1280 by default (optional)
-> `-h|--height` - the required height of the output video 720 by default (optional)
+* `-i|--input` - the input directory with video files (required)
+* `-o|--output` - the output directory `./output` by default (optional)
+* `-w|--width` - the required width of the output video 1280 by default (optional)
+* `-h|--height` - the required height of the output video 720 by default (optional)
 ```
 ./compress_dir.sh -i ./input -o ./output -w 1280 -h 720
 ```
 
 ## download_hls.sh
 Download remote HLS video to the local mp4 file
-> `-i|--input` - the input HLS video URL (required)
-> `-o|--output` - the output video file `./output.mp4` by default (optional)
+* `-i|--input` - the input HLS video URL (required)
+* `-o|--output` - the output video file `./output.mp4` by default (optional)
 ```
 ./download_hls.sh -i "http://foo/bar.m3u8" -o output.mp4
 ```
 
 ## screenshots.sh
 Make screenshots from the input video file
-> `-i|--input` - the input HLS video URL (required)
-> `-o|--output` - the output video file `./output.mp4` by default (optional)
-> `-s|--seconds` time interval (10 sec is by default). The output images will be placed in the current directory
+* `-i|--input` - the input HLS video URL (required)
+* `-o|--output` - the output video file `./output.mp4` by default (optional)
+* `-s|--seconds` time interval (10 sec is by default). The output images will be placed in the current directory
 ```
 ./screenshots.sh -i input.mp4 -s 30 -o ./output
 ```
