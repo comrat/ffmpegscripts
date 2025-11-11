@@ -119,7 +119,7 @@ Download youtube video and retrieve the audio track and convert it to the mp3 fi
 * `-o|--output` - the output audio file `./output.mp3` by default (optional)
 * `-p|--proxy` - Use the specified HTTP/HTTPS/SOCKS proxy
 ```
-./youtube2mp3.sh -i https://www.youtube.com/watch?v=100500 -o output.mp3 -p socks5://user:pass@127.0.0.1:1080/
+./youtube2mp3.sh -i https://www.youtube.com/watch?v=100500 -o output.mp3 -p 'socks5://user:pass@127.0.0.1:1080/'
 ```
 
 ## get_frames.sh
@@ -132,4 +132,13 @@ Get all frames from the input video file
 Combine all audio files from the input directory (use `-i` flag to provide the absolute path to this directory) into single mp3 file (use `-o` flag to setupt result file name `output.mp3` by default).
 ```
 ./dir2mp3.sh -i /home/username/audio_files/ -o output.mp3
+```
+
+## download_hd_youtube.sh
+Download youtube video (HD quality) and save it on device
+* `-i|--input` - input youtube link to the desired video (required)
+* `-o|--output` - the output video file `./output.mp4` by default (optional)
+* `-p|--proxy` - Use the specified HTTP/HTTPS/SOCKS proxy
+```
+./download_hd_youtube.sh -i https://www.youtube.com/watch?v=100500 -o output.mp4 -p 'socks5://user:pass@127.0.0.1:1080/'
 ```
