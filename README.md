@@ -115,8 +115,11 @@ Make HLS from input.mp4 video
 
 ## youtube2mp3.sh
 Download youtube video and retrieve the audio track and convert it to the mp3 file
+* `-i|--input` - input youtube link to the desired video (required)
+* `-o|--output` - the output audio file `./output.mp3` by default (optional)
+* `-p|--proxy` - Use the specified HTTP/HTTPS/SOCKS proxy
 ```
-./youtube2mp3.sh https://www.youtube.com/watch?v=100500 output.mp3
+./youtube2mp3.sh -i https://www.youtube.com/watch?v=100500 -o output.mp3 -p socks5://user:pass@127.0.0.1:1080/
 ```
 
 ## get_frames.sh
