@@ -72,18 +72,6 @@ Record video in file from webcam. Single argument is the outut file
 ./record.sh output.mp4
 ```
 
-## resize.sh
-Set new size to the input video
-```
-./resize.sh -i input.mp4 -w 1280 -h 720 -o output.mp4
-```
-
-## resize_dir.sh
-Set new size to the all files in input directory
-```
-./resize_dir.sh -i ./input -w 1280 -h 720 -o ./output
-```
-
 ## watermark.sh
 Add watermark (watermark.png) on input video. First argument is the input video file second output file the thord one - watermark image file
 ```
