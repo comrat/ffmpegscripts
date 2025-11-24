@@ -39,24 +39,31 @@ Make screenshots from the input video file
 ```
 
 ## image2video.sh
-Make single frame video from the input image.
-First argument for input image file. The second one is for output video file.
-Use `-d` flag to setup output video duration (30 sec. is by default)
+Make single frame video from the input image
+First argument for input image file. The second one is for file
+* `-i|--input` - the input image file path (required)
+* `-o|--output` - the output video file `./output.mp4` by default (optional)
+* `-d|--duration` - output video file duration, 30 seconds by default (optional)
 ```
-./image2video.sh foo.jpg bar.mp4 -d 10
+./image2video.sh -i foo.jpg -o bar.mp4 -d 10
 ```
 
 ## get_part.sh
-Get `-i` video part from selected second `-s` with `-d` duration time length.
-The below script get part of the input video `input.mp4` from the `00:00:10` second with `00:00:20` seonds duration to the `output.mp4` file
+Get part of the input video from the specific timestamp and save it to another video file
+* `-i|--input` - the input video file (required)
+* `-o|--output` - the output video file `./output.mp4` by default (optional)
+* `-s|--start-time` - start time from the source video in "hh:mm:ss" format (optional)
+* `-d|--duration` - output video file duration, 30 seconds by default (optional)
 ```
 ./get_part.sh -i input.mp4 -s 00:00:10 -d 00:00:20 -o output.mp4
 ```
 
 ## rotate.sh
-Rotate video 90 degrees clockwise. First argument is the input file and the second is the output file
+Rotate video 90 degrees clockwise
+* `-i|--input` - the input video file (required)
+* `-o|--output` - the output video file `./output.mp4` by default (optional)
 ```
-./rotate.sh input.mp4 output.mp4
+./rotate.sh -i input.mp4 -o output.mp4
 ```
 
 ## video2gif.sh

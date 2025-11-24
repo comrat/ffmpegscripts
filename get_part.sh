@@ -1,5 +1,9 @@
 #! /bin/bash
 
+OUTPUT_FILE="output.mp4"
+START_TIME="00:00:00"
+DURATION_TIME="30"
+
 POSITIONAL=()
 while [[ $# -gt 0 ]]
 do
@@ -33,5 +37,10 @@ case $key in
 esac
 done
 set -- "${POSITIONAL[@]}" # restore positional parameters
+
+if [ -z ${INPUT_FILE+x} ]; then
+	echo "Provide the input video file using the -i flag"
+	exit 2
+fi
 
 ffmpeg -i $INPUT_FILE -ss $START_TIME -t $DURATION_TIME $OUTPUT_FILE

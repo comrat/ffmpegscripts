@@ -1,12 +1,6 @@
 #! /bin/bash
 
-if [[ $# < 2 ]]; then
-	echo "Provide two parameters: input image and output video"
-	exit 2
-fi
-
-INPUT_IMG=$1
-OUTPUT_VIDEO=$2
+OUTPUT_FILE="output.mp4"
 DURATION=30
 
 POSITIONAL=()
@@ -15,21 +9,32 @@ do
 key="$1"
 
 case $key in
+	-i|--input)
+	INPUT_FILE="$2"
+	shift
+	shift
+	;;
+	-o|--output)
+	OUTPUT_FILE="$2"
+	shift
+	shift
+	;;
 	-d|--duration)
 	DURATION="$2"
-	shift # past argument
-	shift # past value
+	shift
+	shift
 	;;
-	*)    # unknown option
-	POSITIONAL+=("$1") # save it in an array for later
-	shift # past argument
+	*)
+	POSITIONAL+=("$1")
+	shift
 	;;
 esac
 done
-set -- "${POSITIONAL[@]}" # restore positional parameters
+set -- "${POSITIONAL[@]}"
 
+if [ -z ${INPUT_FILE+x} ]; then
+	echo "Provide the input file using the -i flag"
+	exit 2
+fi
 
-echo $INPUT_IMG
-echo $DURATION
-echo $OUTPUT_VIDEO
-ffmpeg -loop 1 -i "$INPUT_IMG" -c:v libx264 -t $DURATION -pix_fmt yuv420p "$OUTPUT_VIDEO"
+ffmpeg -loop 1 -i "$INPUT_FILE" -c:v libx264 -t $DURATION -pix_fmt yuv420p "$OUTPUT_FILE"
