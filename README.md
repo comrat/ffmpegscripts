@@ -67,10 +67,14 @@ Rotate video 90 degrees clockwise
 ```
 
 ## video2gif.sh
-Convert video to gif file
+Convert video into the gif file
 Get `-i` video file and take every `-f` frame from it and combine result frames with `-t` interval to the `-o` GIF file
+* `-i|--input` - the input video file (required)
+* `-o|--output` - the output gif file `./output.gif` by default (optional)
+* `-f|--frames` - frames for input video to devide, 5 frames is by default (optional)
+* `-t|--time` - time delay for each output gif frame to wait, is 10 seconds by default (optional)
 ```
-./video2gif.sh -i input.mp4 -f 30 -t 5 0o output.gif
+./video2gif.sh -i input.mp4 -f 30 -t 5 -o output.gif
 ```
 
 ## record.sh

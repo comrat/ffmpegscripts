@@ -13,34 +13,33 @@ key="$1"
 case $key in
     -i|--input)
     INPUT_FILE="$2"
-    shift # past argument
-    shift # past value
+    shift
+    shift
     ;;
     -o|--output)
     OUTPUT_FILE="$2"
-    shift # past argument
-    shift # past value
+    shift
+    shift
     ;;
     -t|--time)
     TIME_DELAY="$2"
-    shift # past argument
-    shift # past value
+    shift
+    shift
     ;;
     -f|--frames)
     FRAMES="$2"
-    shift # past argument
-    shift # past value
+    shift
+    shift
     ;;
-    *)    # unknown option
-    POSITIONAL+=("$1") # save it in an array for later
-    shift # past argument
+    *)
+    POSITIONAL+=("$1")
+    shift
     ;;
 esac
 done
-set -- "${POSITIONAL[@]}" # restore positional parameters
+set -- "${POSITIONAL[@]}"
 
-mkdir frames
-ffmpeg -i "$INPUT_FILE" -vf scale=320:-1:flags=lanczos,fps=$FRAMES frames/ffout%03d.png
-# convert -loop 0 frames/ffout*.png "$OUTPUT_FILE"
-convert -delay $TIME_DELAY frames/ffout*.png $OUTPUT_FILE
-rm -rf frames
+mkdir frames_tmp
+ffmpeg -i "$INPUT_FILE" -vf scale=320:-1:flags=lanczos,fps=$FRAMES frames_tmp/ffout%03d.png
+convert -delay $TIME_DELAY frames_tmp/ffout*.png $OUTPUT_FILE
+rm -rf frames_tmp
