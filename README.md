@@ -5,8 +5,8 @@ ffmpeg scripts collection
 Compress this single video file
 * `-i|--input` - the input video file (required)
 * `-o|--output` - the output video file `./output.mp4` by default (optional)
-* `-w|--width` - the required width of the output video 1280 by default (optional)
-* `-h|--height` - the required height of the output video 720 by default (optional)
+* `-w|--width` - the required width of the output video, input video width is used by default (optional)
+* `-h|--height` - the required height of the output video, input video height is used by default (optional)
 ```
 ./compress.sh -i input.mp4 -o output.mp4 -w 1280 -h 720
 ```
@@ -15,8 +15,8 @@ Compress this single video file
 Compress all files in the input directory
 * `-i|--input` - the input directory with video files (required)
 * `-o|--output` - the output directory `./output` by default (optional)
-* `-w|--width` - the required width of the output video 1280 by default (optional)
-* `-h|--height` - the required height of the output video 720 by default (optional)
+* `-w|--width` - the required width of the output video, input video width is used by default (optional)
+* `-h|--height` - the required height of the output video, input video height is used by default (optional)
 ```
 ./compress_dir.sh -i ./input -o ./output -w 1280 -h 720
 ```
@@ -78,15 +78,21 @@ Get `-i` video file and take every `-f` frame from it and combine result frames 
 ```
 
 ## record.sh
-Record video in file from webcam. Single argument is the outut file
+Record video in the video file from the webcam.
+* `-o|--output` - the output video file `./output.mp4` by default (optional)
+* `-w|--width` - the required width of the output video 640 by default (optional)
+* `-h|--height` - the required height of the output video 480 by default (optional)
 ```
-./record.sh output.mp4
+./record.sh -w 640 -h 480 -o output.mp4
 ```
 
 ## watermark.sh
 Add watermark (watermark.png) on input video. First argument is the input video file second output file the thord one - watermark image file
+* `-i|--input` - the input video file (required)
+* `-w|--watermark` - watermark image file `watermark.png` is by default (optional)
+* `-o|--output` - the output video file `./output.mp4` by default (optional)
 ```
-./watermark.sh ./input.mp4 ./output.mp4 ./watermark.png
+./watermark.sh -i ./input.mp4 -o ./output.mp4 -w ./watermark.png
 ```
 
 ## remove_audio.sh
