@@ -96,12 +96,19 @@ Add watermark (watermark.png) on input video. First argument is the input video 
 ```
 
 ## remove_audio.sh
-Remove audio from input video
+Remove audio from the input video
+* `-i|--input` - the input video file (required)
+* `-o|--output` - the output video file `./output.mp4` by default (optional)
 ```
+./remove_audio.sh -i ./input.mp4 -o ./output.mp4
 ```
 
 ## get_duration.sh
-Script returns input video duration
+Retrieve the input video duration
+* `-i|--input` - the input video file (required)
+```
+./get_duration.sh -i ./input.mp4
+```
 
 ## merge_video_and_audio.sh
 Merge video and audio files in one
