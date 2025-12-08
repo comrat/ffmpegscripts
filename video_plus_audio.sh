@@ -1,34 +1,43 @@
 #! /bin/bash
 
+OUTPUT_FILE="output.mp4"
+
 POSITIONAL=()
 while [[ $# -gt 0 ]]
 do
 key="$1"
 
-OUTPUT_FILE="output.mp4"
-
 case $key in
     -v|--video)
     INPUT_VIDEO="$2"
-    shift # past argument
-    shift # past value
+    shift
+    shift
     ;;
     -a|--audio)
     INPUT_AUDIO="$2"
-    shift # past argument
-    shift # past value
-    ;;
+    shift
+    shift
     -o|--output)
     OUTPUT_FILE="$2"
-    shift # past argument
-    shift # past value
+    shift
+    shift
     ;;
-    *)    # unknown option
-    POSITIONAL+=("$1") # save it in an array for later
-    shift # past argument
+    *)
+    POSITIONAL+=("$1")
+    shift
     ;;
 esac
 done
-set -- "${POSITIONAL[@]}" # restore positional parameters
+set -- "${POSITIONAL[@]}"
 
-ffmpeg -i $INPUT_VIDEO -i $INPUT_AUDIO -c:v copy -c:a aac $OUTPUT_FILE
+if [ -z ${INPUT_VIDEO+x} ]; then
+	echo "Provide the input video file using the -v flag"
+	exit 2
+fi
+
+if [ -z ${INPUT_AUDIO+x} ]; then
+	echo "Provide the input audio file using the -a flag"
+	exit 2
+fi
+
+ffmpeg -i $INPUT_VIDEO -i $INPUT_AUDIO -c:v copy -c:a aac -strict experimental ${OUTPUT_FILE}

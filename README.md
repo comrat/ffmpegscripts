@@ -110,8 +110,13 @@ Retrieve the input video duration
 ./get_duration.sh -i ./input.mp4
 ```
 
-## merge_video_and_audio.sh
-Merge video and audio files in one
+## video_plus_audio.sh
+Merge video and audio files into the single one
+* `-v|--video` - the input video file (required)
+* `-o|--output` - the output video file `./output.mp4` by default (optional)
+```
+./video_plus_audio.sh -v ./video.mp4 -a audio.m4a -o ./output.mp4
+```
 
 ## gif2video.sh
 Make video from gif
