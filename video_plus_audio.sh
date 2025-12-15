@@ -17,6 +17,7 @@ case $key in
     INPUT_AUDIO="$2"
     shift
     shift
+    ;;
     -o|--output)
     OUTPUT_FILE="$2"
     shift

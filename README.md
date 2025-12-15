@@ -120,14 +120,10 @@ Merge video and audio files into the single one
 
 ## gif2video.sh
 Make video from gif
+* `-i|--input` - the input gif file (required)
+* `-o|--output` - the output video file `./output.mp4` by default (optional)
 ```
-./gif2video.sh input.gif output.mp4
-```
-
-## gif2video_dir.sh
-Make video files from gif files in input directory
-```
-./gif2video_dir.sh input.gif output.mp4
+./gif2video.sh -i input.gif -o output.mp4
 ```
 
 ## crop_video.sh
