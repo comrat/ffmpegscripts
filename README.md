@@ -128,6 +128,10 @@ Make video from gif
 
 ## crop_video.sh
 Crop video from fixed (X, Y) position
+* `-i|--input` - the input gif file (required)
+* `-o|--output` - the output video file `./output.mp4` by default (optional)
+* `-x|--x` - horizontal X position in pixels `0` by default (optional)
+* `-y|--y` - vertical Y position in pixels `0` by default (optional)
 ```
 ./crop_video.sh -i input.mp4 -x 100 -y 100 -o output.mp4
 ```
