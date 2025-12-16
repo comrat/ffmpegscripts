@@ -128,7 +128,7 @@ Make video from gif
 
 ## crop_video.sh
 Crop video from fixed (X, Y) position
-* `-i|--input` - the input gif file (required)
+* `-i|--input` - the input video file (required)
 * `-o|--output` - the output video file `./output.mp4` by default (optional)
 * `-x|--x` - horizontal X position in pixels `0` by default (optional)
 * `-y|--y` - vertical Y position in pixels `0` by default (optional)
@@ -137,9 +137,13 @@ Crop video from fixed (X, Y) position
 ```
 
 ## make_hls.sh
-Make HLS from input.mp4 video
+Make HLS from the input video
+* `-i|--input` - the input video file (required)
+* `-w|--width` - the required width of the output video, 1280 is by default (optional)
+* `-h|--height` - the required height of the output video, 720 is by default (optional)
+* `-s|--seconds` chunk time interval, 10 sec is by default (optional)
 ```
-./make_hls.sh -i input.mp4 -w 1280 -h 720
+./make_hls.sh -i input.mp4 -w 1280 -h 720 -s 10
 ```
 
 ## youtube2mp3.sh
