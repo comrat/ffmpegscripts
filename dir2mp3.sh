@@ -33,7 +33,6 @@ if [ -z "$INPUT_DIR" ]; then
 fi
 
 TMPFILE=$(mktemp).txt
-# touch $TMPFILE
 
 for i in $INPUT_DIR/*;
 	do name=`echo $i | cut -d'.' -f1`;
