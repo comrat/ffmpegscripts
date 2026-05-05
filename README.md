@@ -178,3 +178,11 @@ Download YouTube video in HD quality and save to device
 ```
 ./download_hd_youtube.sh -i https://www.youtube.com/watch?v=100500 -o output.mp4 -p 'socks5://user:pass@127.0.0.1:1080/'
 ```
+
+## speed_up.sh
+Mute the input video and speed it up
+* `-i|--input` - input video file (required)
+* `-o|--output` - output video file, defaults to `./output.mp4` (optional)
+```
+./speed_up.sh -i input.mp4 -o output.mp4
+```
