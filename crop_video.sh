@@ -43,4 +43,4 @@ if [ -z ${INPUT_FILE+x} ]; then
 	exit 2
 fi
 
-ffmpeg -i $INPUT_FILE -filter:v "crop=in_w-$X:in_h-$Y:$X:$Y" $OUTPUT_FILE
+ffmpeg -i "$INPUT_FILE" -filter:v "crop=in_w-$X:in_h-$Y:$X:$Y" "$OUTPUT_FILE"

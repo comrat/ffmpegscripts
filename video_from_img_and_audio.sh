@@ -34,5 +34,4 @@ esac
 done
 set -- "${POSITIONAL[@]}" # restore positional parameters
 
-ffmpeg -loop 1 -i $INPUT_IMG -i $INPUT_AUDIO -c:v libx264 -tune stillimage -c:a aac -b:a 192k -pix_fmt yuv420p -shortest $OUTPUT_FILE
-
+ffmpeg -loop 1 -i "$INPUT_IMG" -i "$INPUT_AUDIO" -c:v libx264 -tune stillimage -c:a aac -b:a 192k -pix_fmt yuv420p -shortest "$OUTPUT_FILE"

@@ -37,4 +37,4 @@ if [ -z ${INPUT_FILE+x} ]; then
 	exit 2
 fi
 
-ffmpeg -i $INPUT_FILE -i $WATERMARK -filter_complex "overlay=main_w-overlay_w-20:10" $OUTPUT_FILE
+ffmpeg -i "$INPUT_FILE" -i "$WATERMARK" -filter_complex "overlay=main_w-overlay_w-20:10" "$OUTPUT_FILE"

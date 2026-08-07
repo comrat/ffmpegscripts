@@ -31,4 +31,4 @@ if [ -z ${INPUT_FILE+x} ]; then
 	exit 2
 fi
 
-ffmpeg -i $INPUT_FILE -vcodec copy -an $OUTPUT_FILE
+ffmpeg -i "$INPUT_FILE" -vcodec copy -an "$OUTPUT_FILE"

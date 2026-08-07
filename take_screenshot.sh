@@ -17,4 +17,4 @@ if [[ $# > 2 ]]; then
 	OUTPUT_DIR=$3
 fi
 
-ffmpeg -i $INPUT_FILE -ss 00:00:00 -vframes 1 $OUTPUT_FILE
+ffmpeg -i "$INPUT_FILE" -ss 00:00:00 -vframes 1 "$OUTPUT_FILE"

@@ -32,4 +32,4 @@ if [ -z ${INPUT_FILE+x} ]; then
 fi
 
 
-ffmpeg -f gif -i $INPUT_FILE $OUTPUT_FILE
+ffmpeg -f gif -i "$INPUT_FILE" "$OUTPUT_FILE"

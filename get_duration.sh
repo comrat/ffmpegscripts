@@ -24,4 +24,4 @@ if [ -z ${INPUT_FILE+x} ]; then
 	exit 2
 fi
 
-ffprobe -i $INPUT_FILE -show_format -v quiet | sed -n 's/duration=//p' | cat
+ffprobe -i "$INPUT_FILE" -show_format -v quiet | sed -n 's/duration=//p' | cat

@@ -35,4 +35,4 @@ if [ ! -d $OUTPUT_DIR ]; then
 	mkdir $OUTPUT_DIR
 fi
 
-ffmpeg -i $INPUT_FILE  $OUTPUT_DIR/$filename%03d.jpg
+ffmpeg -i "$INPUT_FILE" "$OUTPUT_DIR/$filename%03d.jpg"

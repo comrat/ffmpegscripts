@@ -43,4 +43,4 @@ elif [[ ! -d $OUTPUT_DIR ]]; then
 	echo "$OUTPUT_DIR already exists but is not a directory" 1>&2
 fi
 
-ffmpeg -i $INPUT_FILE -vf fps=1/$SECONDS "$OUTPUT_DIR/%d.png"
+ffmpeg -i "$INPUT_FILE" -vf fps=1/$SECONDS "$OUTPUT_DIR/%d.png"

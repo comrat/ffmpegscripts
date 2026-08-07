@@ -43,4 +43,4 @@ if [ -z ${INPUT_FILE+x} ]; then
 	exit 2
 fi
 
-ffmpeg -i $INPUT_FILE -ss $START_TIME -t $DURATION_TIME $OUTPUT_FILE
+ffmpeg -i "$INPUT_FILE" -ss $START_TIME -t $DURATION_TIME "$OUTPUT_FILE"

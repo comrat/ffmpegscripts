@@ -33,6 +33,6 @@ fi
 
 FILENAME=$(basename "$INPUT_FILE")
 
-ffmpeg -i $INPUT_FILE -vcodec copy -an "na$FILENAME"
+ffmpeg -i "$INPUT_FILE" -vcodec copy -an "na$FILENAME"
 ffmpeg -i "na$FILENAME" -filter:v "setpts=PTS/60" "$OUTPUT_FILE"
 rm "na$FILENAME"

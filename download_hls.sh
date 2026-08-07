@@ -41,4 +41,4 @@ if [ -z ${INPUT_HLS+x} ]; then
 	exit 2
 fi
 
-ffmpeg -f hls -i $INPUT_HLS -c copy -bsf:a aac_adtstoasc $OUTPUT_FILE
+ffmpeg -f hls -i "$INPUT_HLS" -c copy -bsf:a aac_adtstoasc "$OUTPUT_FILE"
