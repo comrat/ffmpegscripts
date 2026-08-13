@@ -32,7 +32,7 @@ esac
 done
 set -- "${POSITIONAL[@]}" # restore positional parameters
 
-if [ -z ${INPUT_DIR+x} ]; then
+if [ -z ${INPUT_FILE+x} ]; then
 	echo "Provide the input video file with -i flag"
 	exit 2
 fi
