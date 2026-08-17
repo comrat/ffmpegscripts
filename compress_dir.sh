@@ -52,6 +52,9 @@ fi
 for i in $INPUT_DIR/*;
 	do name=`echo $i | cut -d'.' -f1`;
 		FILENAME=$(basename "$i")
+		if [[ ! -f "$i" ]]; then
+			continue
+		fi
 		NAME_WITHOUT_EXT="${FILENAME%.*}"
 		if [[ $WIDTH > 0 ]]; then
 			SIZE=$WIDTH
