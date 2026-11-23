@@ -6,7 +6,7 @@ Compress a single video file
 * `-i|--input` - the input video file (required)
 * `-o|--output` - the output video file defaults to `./output.mp4` (optional)
 * `-w|--width` - desired width of the output video, defaults to input video's width (optional)
-* `-h|--height` - desired height of the output video; defaults to input video's height (optional)
+* `-h|--height` - desired height of the output video, defaults to input video's height (optional)
 ```
 ./compress.sh -i input.mp4 -o output.mp4 -w 1280 -h 720
 ```
@@ -146,7 +146,7 @@ Create HLS stream from input video
 ```
 
 ## youtube2mp3.sh
-Download a YouTube video and extract & convert its audio to MP3
+Download a YouTube video and extract and convert its audio to MP3
 * `-i|--input` - YouTube link (required)
 * `-o|--output` - output audio file, defaults to `./output.mp3` (optional)
 * `-p|--proxy` - optional proxy server (HTTP/HTTPS/SOCKS)
