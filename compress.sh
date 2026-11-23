@@ -1,4 +1,8 @@
-#! /bin/bash
+#!/bin/bash
+if ! ffmpeg -version &> /dev/null; then
+	echo "Error: FFmpeg is required but not installed or not in PATH." >&2
+	exit 1
+fi
 
 OUTPUT_FILE="output.mp4"
 WIDTH=0
@@ -47,7 +51,6 @@ if [[ $WIDTH > 0 ]]; then
 	SIZE=$WIDTH
 	SIZE+="x"
 	SIZE+=$HEIGHT
-	echo $SIZE
 	ffmpeg -i "$INPUT_FILE" -r 30 -c:v libx264 -profile:v baseline -s $SIZE -acodec mp3 -f mp4 "$OUTPUT_FILE"
 else
 	ffmpeg -i "$INPUT_FILE" -r 30 -c:v libx264 -profile:v baseline -acodec mp3 -f mp4 "$OUTPUT_FILE"

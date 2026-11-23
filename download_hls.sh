@@ -1,4 +1,8 @@
 #!/bin/bash
+if ! ffmpeg -version &> /dev/null; then
+	echo "Error: FFmpeg is required but not installed or not in PATH." >&2
+	exit 1
+fi
 
 OUTPUT_FILE="output.mp4"
 
@@ -10,31 +14,31 @@ key="$1"
 case $key in
 	-i|--input)
 	INPUT_HLS="$2"
-	shift # past argument
-	shift # past value
+	shift
+	shift
 	;;
 	-o|--output)
 	OUTPUT_FILE="$2"
-	shift # past argument
-	shift # past value
+	shift
+	shift
 	;;
 	-w|--width)
 	WIDTH="$2"
-	shift # past argument
-	shift # past value
+	shift
+	shift
 	;;
 	-h|--height)
 	HEIGHT="$2"
-	shift # past argument
-	shift # past value
+	shift
+	shift
 	;;
-	*)    # unknown option
-	POSITIONAL+=("$1") # save it in an array for later
-	shift # past argument
+	*)$
+	POSITIONAL+=("$1")
+	shift
 	;;
 esac
 done
-set -- "${POSITIONAL[@]}" # restore positional parameters
+set -- "${POSITIONAL[@]}"
 
 if [ -z ${INPUT_HLS+x} ]; then
 	echo "Provide the HLS URL using the -i flag"

@@ -1,4 +1,8 @@
 #!/bin/bash
+if ! ffmpeg -version &> /dev/null; then
+	echo "Error: FFmpeg is required but not installed or not in PATH." >&2
+	exit 1
+fi
 
 OUTPUT_DIR="output"
 SECONDS=10
@@ -10,7 +14,7 @@ key="$1"
 
 case $key in
 	-i|--input)
-	INPUT_FILE=$1
+	INPUT_FILE="$2"
 	shift
 	shift
 	;;
@@ -24,13 +28,13 @@ case $key in
 	shift
 	shift
 	;;
-	*)    # unknown option
-	POSITIONAL+=("$1") # save it in an array for later
-	shift # past argument
+	*)
+	POSITIONAL+=("$1")
+	shift
 	;;
 esac
 done
-set -- "${POSITIONAL[@]}" # restore positional parameters
+set -- "${POSITIONAL[@]}"
 
 if [ -z ${INPUT_FILE+x} ]; then
 	echo "Provide the input video file with -i flag"

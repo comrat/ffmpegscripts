@@ -93,6 +93,14 @@ Add a watermark image to a video
 ./watermark.sh -i ./input.mp4 -o ./output.mp4 -w ./watermark.png
 ```
 
+## get_audio.sh
+Get audio track from a video
+* `-i|--input` - input video file (required)
+* `-o|--output` - output audio file, defaults to `./output.mp3` (optional)
+```
+./get_audio.sh -i ./input.mp4 -o ./output.mp3
+```
+
 ## remove_audio.sh
 Remove audio track from a video
 * `-i|--input` - input video file (required)
@@ -185,4 +193,12 @@ Mute the input video and speed it up
 * `-o|--output` - output video file, defaults to `./output.mp4` (optional)
 ```
 ./speed_up.sh -i input.mp4 -o output.mp4
+```
+
+## make_telegram_video_sticker.sh
+Make animated sticker for telegram from the input video
+* `-i|--input` - input video file (required)
+* `-o|--output` - output video file, defaults to `./output.webm` (optional)
+```
+./make_telegram_video_sticker.sh -i input.mp4 -o output.webm
 ```

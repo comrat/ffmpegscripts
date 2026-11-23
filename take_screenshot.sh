@@ -1,7 +1,6 @@
 #!/bin/bash
-
-if [[ $# < 1 ]]; then
-	echo "Provide input file"
+if ! ffmpeg -version &> /dev/null; then
+	echo "Error: FFmpeg is required but not installed or not in PATH." >&2
 	exit 1
 fi
 
@@ -11,10 +10,6 @@ SECONDS=10
 
 if [[ $# > 1 ]]; then
 	SECONDS=$2
-fi
-
-if [[ $# > 2 ]]; then
-	OUTPUT_DIR=$3
 fi
 
 ffmpeg -i "$INPUT_FILE" -ss 00:00:00 -vframes 1 "$OUTPUT_FILE"

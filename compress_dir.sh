@@ -1,4 +1,8 @@
-#! /bin/bash
+#!/bin/bash
+if ! ffmpeg -version &> /dev/null; then
+	echo "Error: FFmpeg is required but not installed or not in PATH." >&2
+	exit 1
+fi
 
 OUTPUT_DIR="output"
 WIDTH=0
@@ -50,18 +54,18 @@ elif [[ ! -d $OUTPUT_DIR ]]; then
 fi
 
 for i in $INPUT_DIR/*;
-	do name=`echo $i | cut -d'.' -f1`;
-		FILENAME=$(basename "$i")
-		if [[ ! -f "$i" ]]; then
-			continue
-		fi
-		NAME_WITHOUT_EXT="${FILENAME%.*}"
-		if [[ $WIDTH > 0 ]]; then
-			SIZE=$WIDTH
-			SIZE+="x"
-			SIZE+=$HEIGHT
-			ffmpeg -i "$i" -c:v libx264 -s $SIZE -acodec mp3 -f mp4 "$OUTPUT_DIR/$NAME_WITHOUT_EXT".mp4
-		else
-			ffmpeg -i "$i" -c:v libx264 -acodec mp3 -f mp4 "$OUTPUT_DIR/$NAME_WITHOUT_EXT".mp4
-		fi
-	done
+do name=`echo $i | cut -d'.' -f1`;
+	FILENAME=$(basename "$i")
+	if [[ ! -f "$i" ]]; then
+		continue
+	fi
+	NAME_WITHOUT_EXT="${FILENAME%.*}"
+	if [[ $WIDTH > 0 ]]; then
+		SIZE=$WIDTH
+		SIZE+="x"
+		SIZE+="$HEIGHT"
+		ffmpeg -i "$i" -c:v libx264 -s $SIZE -acodec mp3 -f mp4 "$OUTPUT_DIR/$NAME_WITHOUT_EXT".mp4
+	else
+		ffmpeg -i "$i" -c:v libx264 -acodec mp3 -f mp4 "$OUTPUT_DIR/$NAME_WITHOUT_EXT".mp4
+	fi
+done
